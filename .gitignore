@@ -1,6 +1,8 @@
 
 # Created by https://www.gitignore.io/api/osx,pycharm,python
 
+.idea
+
 ### OSX ###
 *.DS_Store
 .AppleDouble
