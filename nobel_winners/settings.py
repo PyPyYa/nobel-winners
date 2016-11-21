@@ -11,6 +11,8 @@
 
 BOT_NAME = 'nobel_winners'
 
+LOG_LEVEL = 'INFO'
+
 SPIDER_MODULES = ['nobel_winners.spiders']
 NEWSPIDER_MODULE = 'nobel_winners.spiders'
 
