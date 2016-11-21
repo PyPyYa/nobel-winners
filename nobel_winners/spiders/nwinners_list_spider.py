@@ -27,6 +27,16 @@ class NWinnerSpider(scrapy.Spider):
         h2s = response.xpath('//h2')
 
         for h2 in h2s:
+            if len(h2.xpath('span[@class="mw-headline"]/text()')) == 0:
+                h2s.remove(h2)
+
+        while len(h2s[0].xpath('span[@id="Argentina"]/text()')) == 0:
+            h2s.remove(h2s[0])
+
+        while len(h2s[len(h2s) - 1].xpath('span[@id="Yugoslavia"]/text()')) == 0:
+            h2s.remove(h2s[len(h2s) - 1])
+
+        for h2 in h2s:
             country = h2.xpath('span[@class="mw-headline"]/text()').extract()
             if country:
                 winners = h2.xpath('following-sibling::ol[1]')[0]
